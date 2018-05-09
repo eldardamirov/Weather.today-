@@ -19,7 +19,7 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="jVn-N1-qKn">
             <items>
-                <menuItem title="Item 1" id="8Sd-ZE-b3z" userLabel="Quit">
+                <menuItem title="Quit" id="8Sd-ZE-b3z" userLabel="Quit">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="quitButtonClicked:" target="Voe-Tx-rLC" id="wiP-Zt-etH"/>
