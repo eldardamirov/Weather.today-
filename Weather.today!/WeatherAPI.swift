@@ -8,11 +8,21 @@
 
 import Foundation
 
+protocol WeatherAPIDelegate 
+    {
+    func weatherDidUpdate ( _ weather: Weather )
+    }
+
 struct Weather 
     {
     var city: String = "";
     var currentTemp: Float = 0.0;
     var conditions: String = "";
+    
+    var description: String 
+        {
+        return "Moscos: \( currentTemp )C˙; it is \( conditions )";
+        }
     }
 
 class WeatherAPI

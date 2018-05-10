@@ -13,6 +13,7 @@ class statusMenuController: NSObject {
     let statusItem = NSStatusBar.system.statusItem ( withLength: NSStatusItem.variableLength );
     
     let weatherAPI = WeatherAPI();
+    var weatherView = WeatherView();
     
     @IBAction func quitButtonClicked ( _ sender: NSMenuItem ) 
         {
@@ -22,6 +23,7 @@ class statusMenuController: NSObject {
     @IBAction func updateButtonClicked ( _ sender: NSMenuItem )
         {
         weatherAPI.getCurrentWeather ( city: "Moscow" );
+        weatherView.updateWeather ( city: "Moscow", temp: 10, conditions: "Sunny" );
         }
         
     override func awakeFromNib() 
