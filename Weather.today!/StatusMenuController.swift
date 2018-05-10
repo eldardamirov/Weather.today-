@@ -12,12 +12,17 @@ class statusMenuController: NSObject {
     @IBOutlet weak var statusMenu: NSMenu!;
     let statusItem = NSStatusBar.system.statusItem ( withLength: NSStatusItem.variableLength );
     
+    let weatherAPI = WeatherAPI();
     
-    @IBAction func quitButtonClicked(_ sender: NSMenuItem) 
+    @IBAction func quitButtonClicked ( _ sender: NSMenuItem ) 
         {
         NSApplication.shared.terminate ( self );
         }
 
+    @IBAction func updateButtonClicked ( _ sender: NSMenuItem )
+        {
+        weatherAPI.getCurrentWeather ( city: "Moscow" );
+        }
         
     override func awakeFromNib() 
         {

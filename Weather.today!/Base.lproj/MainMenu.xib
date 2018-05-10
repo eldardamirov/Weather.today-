@@ -20,6 +20,13 @@
         </customObject>
         <menu id="jVn-N1-qKn">
             <items>
+                <menuItem title="Update" id="7k1-eC-jGc">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="updateButtonClicked:" target="3yf-mz-5Ff" id="AYD-cp-cJi"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Slc-SB-tcS"/>
                 <menuItem title="Quit" id="8Sd-ZE-b3z" userLabel="Quit">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>

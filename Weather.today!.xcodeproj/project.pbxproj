@@ -11,9 +11,11 @@
 		865CB5B420A307D8006BDBB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 865CB5B320A307D8006BDBB1 /* Assets.xcassets */; };
 		865CB5B720A307D8006BDBB1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 865CB5B520A307D8006BDBB1 /* MainMenu.xib */; };
 		865CB5C420A3115A006BDBB1 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CB5C320A3115A006BDBB1 /* StatusMenuController.swift */; };
+		865CB5C620A31663006BDBB1 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CB5C520A31663006BDBB1 /* WeatherAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8603629920A4373A006AABFD /* Weather.today!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Weather.today!.entitlements"; sourceTree = "<group>"; };
 		865CB5AE20A307D8006BDBB1 /* Weather.today!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather.today!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		865CB5B120A307D8006BDBB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		865CB5B320A307D8006BDBB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -21,6 +23,7 @@
 		865CB5B820A307D8006BDBB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		865CB5B920A307D8006BDBB1 /* Weather_today_.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Weather_today_.entitlements; sourceTree = "<group>"; };
 		865CB5C320A3115A006BDBB1 /* StatusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
+		865CB5C520A31663006BDBB1 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +56,10 @@
 		865CB5B020A307D8006BDBB1 /* Weather.today! */ = {
 			isa = PBXGroup;
 			children = (
+				8603629920A4373A006AABFD /* Weather.today!.entitlements */,
 				865CB5B120A307D8006BDBB1 /* AppDelegate.swift */,
 				865CB5C320A3115A006BDBB1 /* StatusMenuController.swift */,
+				865CB5C520A31663006BDBB1 /* WeatherAPI.swift */,
 				865CB5B320A307D8006BDBB1 /* Assets.xcassets */,
 				865CB5B520A307D8006BDBB1 /* MainMenu.xib */,
 				865CB5B820A307D8006BDBB1 /* Info.plist */,
@@ -96,6 +101,11 @@
 					865CB5AD20A307D8006BDBB1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -134,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865CB5C620A31663006BDBB1 /* WeatherAPI.swift in Sources */,
 				865CB5C420A3115A006BDBB1 /* StatusMenuController.swift in Sources */,
 				865CB5B220A307D8006BDBB1 /* AppDelegate.swift in Sources */,
 			);
@@ -263,7 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Weather.today!/Weather_today_.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Weather.today!/Weather.today!.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = AUWER2S3N2;
@@ -279,7 +290,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Weather.today!/Weather_today_.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Weather.today!/Weather.today!.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = AUWER2S3N2;
