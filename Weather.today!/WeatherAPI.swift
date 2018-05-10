@@ -53,10 +53,15 @@ class WeatherAPI
                 switch httpResponse.statusCode 
                     {
                     case 200: // all good!
-                        if let dataString = String(data: data!, encoding: .utf8) 
+                        if let weather = self.parseJSON ( data: data! )
                             {
-                            NSLog(dataString)
+                            NSLog ( "\( weather )" );
                             }
+//                        if let dataString = String(data: data!, encoding: .utf8) 
+//                            {
+//                            NSLog(dataString)
+//                            }
+
                     case 401: // unauthorized
                         NSLog ( "weather api returned an 'unauthorized' response. Did you set your API key?" )
                     default:
@@ -75,7 +80,7 @@ class WeatherAPI
     public func parseJSON ( data inputData: Data ) -> Weather?
         {
         typealias JSONDict = [ String : AnyObject ];
-        var json = JSONDict();
+        var json: JSONDict;
         
         do 
             {
@@ -86,11 +91,19 @@ class WeatherAPI
             NSLog ( "JSON parsing failed: \( error )" );
             return nil;
             }
-            
         
+        var weatherDict = json [ "current" ] as! JSONDict;
+        var locationDict = json [ "location" ] as! JSONDict
+        var conditionDict = weatherDict [ "condition" ] as! JSONDict;
 
-        
-        
+        let weather = Weather (
+                              city: locationDict [ "name" ] as! String,
+                              currentTemp: weatherDict [ "temp_c" ] as! Float,
+                              conditions: conditionDict [ "text" ] as! String
+                              );
+
+        return weather;
+             
         }    
     
     
