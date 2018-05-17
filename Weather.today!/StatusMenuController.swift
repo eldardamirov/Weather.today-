@@ -8,11 +8,13 @@
 
 import Cocoa
 
-class statusMenuController: NSObject {
+class statusMenuController: NSObject, WeatherAPIDelegate 
+    {
+    
     @IBOutlet weak var statusMenu: NSMenu!;
     let statusItem = NSStatusBar.system.statusItem ( withLength: NSStatusItem.variableLength );
     
-    let weatherAPI = WeatherAPI();
+    var weatherAPI: WeatherAPI!;
     var weatherView = WeatherView();
     
     @IBAction func quitButtonClicked ( _ sender: NSMenuItem ) 
@@ -22,9 +24,16 @@ class statusMenuController: NSObject {
 
     @IBAction func updateButtonClicked ( _ sender: NSMenuItem )
         {
-        weatherAPI.getCurrentWeather ( city: "Moscow" );
-        weatherView.updateWeather ( city: "Moscow", temp: 10, conditions: "Sunny" );
+//        weatherAPI.getCurrentWeather ( city: "Moscow" );
+//        weatherView.updateWeather ( city: "Moscow", temp: 10, conditions: "Sunny" );
+        updateWeather();
         }
+        
+    func weatherDidUpdate(_ weather: Weather) 
+        {
+        NSLog ( weather.description );
+        }   
+    
         
     override func awakeFromNib() 
         {
@@ -35,7 +44,17 @@ class statusMenuController: NSObject {
         statusItem.image = icon;
         
         statusItem.menu = statusMenu;
+        
+        weatherAPI = WeatherAPI ( delegate: self );
+        updateWeather();
         }
+        
+    func updateWeather()
+        {
+        weatherAPI.getCurrentWeather ( city: "Moscow" );
+        }
+        
+        
 
     
-}
+    }

@@ -32,7 +32,14 @@ class WeatherAPI
     private let apiKey = "03608f4ac58b4ced8d180237181005";
     private let serverURL = "https://api.apixu.com/v1/current.json?key=";
     
-    public func getCurrentWeather ( city query: String )
+    private var delegate: WeatherAPIDelegate?;
+    
+    init ( delegate: WeatherAPIDelegate ) 
+        {
+        self.delegate = delegate;
+        }
+    
+    public func getCurrentWeather ( city query: String, success: @escaping ( Weather ) -> Void )
         {
         let session = URLSession.shared;
         
@@ -65,7 +72,8 @@ class WeatherAPI
                     case 200: // all good!
                         if let weather = self.parseJSON ( data: data! )
                             {
-                            NSLog ( "\( weather )" );
+//                             NSLog ( "\( weather )" );
+                            self.delegate?.weatherDidUpdate ( weather );
                             }
 //                        if let dataString = String(data: data!, encoding: .utf8) 
 //                            {
