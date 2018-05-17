@@ -21,7 +21,7 @@ struct Weather
     
     var description: String 
         {
-        return "Moscos: \( currentTemp )C˙; it is \( conditions )";
+        return "Moscow: \( currentTemp )C˙; it is \( conditions )";
         }
     }
 
@@ -73,7 +73,8 @@ class WeatherAPI
                         if let weather = self.parseJSON ( data: data! )
                             {
 //                             NSLog ( "\( weather )" );
-                            self.delegate?.weatherDidUpdate ( weather );
+//                            self.delegate?.weatherDidUpdate ( weather );
+                            success ( weather );
                             }
 //                        if let dataString = String(data: data!, encoding: .utf8) 
 //                            {
@@ -113,6 +114,7 @@ class WeatherAPI
         var weatherDict = json [ "current" ] as! JSONDict;
         var locationDict = json [ "location" ] as! JSONDict
         var conditionDict = weatherDict [ "condition" ] as! JSONDict;
+        
 
         let weather = Weather (
                               city: locationDict [ "name" ] as! String,

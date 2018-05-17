@@ -27,6 +27,11 @@
                         <action selector="updateButtonClicked:" target="3yf-mz-5Ff" id="AYD-cp-cJi"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="KXr-tJ-lzf"/>
+                <menuItem title="Weather" id="s0l-g2-yR4">
+                    <attributedString key="attributedTitle"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="Slc-SB-tcS"/>
                 <menuItem title="Quit" id="8Sd-ZE-b3z" userLabel="Quit">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -38,94 +43,39 @@
             <point key="canvasLocation" x="138.5" y="165.5"/>
         </menu>
         <customView id="CJy-I4-r7p" customClass="WeatherView" customModule="Weather_today_" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="250" height="215"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ddc-SL-2rn">
-                    <rect key="frame" x="149" y="147" width="52" height="30"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="City" id="iZk-A3-3Fu">
-                        <font key="font" metaFont="system" size="25"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CRB-mQ-dDe">
-                    <rect key="frame" x="132" y="84" width="117" height="30"/>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lru-Rn-L15">
+                    <rect key="frame" x="0.0" y="2" width="48" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Temperature" id="QSf-Lm-H0p">
-                        <font key="font" metaFont="system" size="20"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Nbn-bN-iCe"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oo7-eI-Qc3">
+                    <rect key="frame" x="54" y="0.0" width="96" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="state" id="Hmp-NY-unW">
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j0U-6g-fo0">
-                    <rect key="frame" x="141" y="46" width="103" height="24"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Conditions" id="Sl7-DF-eE8">
-                        <font key="font" metaFont="system" size="20"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJX-lC-Pr8">
+                    <rect key="frame" x="54" y="25" width="96" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="temp" id="cPA-fx-qSz">
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hi4-WJ-FAP">
-                    <rect key="frame" x="20" y="151" width="96" height="22"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="96" id="3iX-9L-1pg"/>
-                    </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="c0Z-ic-7UK">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jHe-Jg-bIP">
-                    <rect key="frame" x="20" y="92" width="96" height="22"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="2VP-8P-AWe">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uam-Rp-CBm">
-                    <rect key="frame" x="20" y="46" width="96" height="22"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="S94-4l-lB7">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
-            <constraints>
-                <constraint firstItem="Hi4-WJ-FAP" firstAttribute="top" secondItem="CJy-I4-r7p" secondAttribute="top" constant="42" id="3BY-Xd-X1i"/>
-                <constraint firstItem="jHe-Jg-bIP" firstAttribute="top" secondItem="Hi4-WJ-FAP" secondAttribute="bottom" constant="37" id="62r-NB-oDF"/>
-                <constraint firstItem="Hi4-WJ-FAP" firstAttribute="leading" secondItem="jHe-Jg-bIP" secondAttribute="leading" id="AoO-ly-MMb"/>
-                <constraint firstItem="Hi4-WJ-FAP" firstAttribute="centerY" secondItem="ddc-SL-2rn" secondAttribute="centerY" id="FSD-Kt-4ZH"/>
-                <constraint firstItem="j0U-6g-fo0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Uam-Rp-CBm" secondAttribute="trailing" symbolic="YES" id="HMk-K4-8xa"/>
-                <constraint firstItem="Hi4-WJ-FAP" firstAttribute="leading" secondItem="CJy-I4-r7p" secondAttribute="leading" constant="20" symbolic="YES" id="bhx-ws-juV"/>
-                <constraint firstItem="Uam-Rp-CBm" firstAttribute="bottom" secondItem="j0U-6g-fo0" secondAttribute="bottom" id="eQY-PZ-qf0"/>
-                <constraint firstItem="Hi4-WJ-FAP" firstAttribute="leading" secondItem="Uam-Rp-CBm" secondAttribute="leading" id="fbb-P1-xdi"/>
-                <constraint firstItem="ddc-SL-2rn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hi4-WJ-FAP" secondAttribute="trailing" symbolic="YES" id="htM-0s-gU3"/>
-                <constraint firstItem="Uam-Rp-CBm" firstAttribute="top" secondItem="jHe-Jg-bIP" secondAttribute="bottom" constant="24" id="i9U-Ub-3p8"/>
-                <constraint firstAttribute="trailing" secondItem="j0U-6g-fo0" secondAttribute="trailing" constant="8" id="jnc-pQ-hVF"/>
-                <constraint firstItem="Hi4-WJ-FAP" firstAttribute="trailing" secondItem="Uam-Rp-CBm" secondAttribute="trailing" id="q9p-Rp-asb"/>
-                <constraint firstAttribute="trailing" secondItem="ddc-SL-2rn" secondAttribute="trailing" constant="51" id="u0n-BO-uMl"/>
-                <constraint firstItem="Hi4-WJ-FAP" firstAttribute="trailing" secondItem="jHe-Jg-bIP" secondAttribute="trailing" id="uno-MG-Mrz"/>
-            </constraints>
             <connections>
-                <outlet property="cityLabel" destination="Hi4-WJ-FAP" id="9PQ-MN-joF"/>
-                <outlet property="conditionsLabel" destination="Uam-Rp-CBm" id="l5h-0f-Cby"/>
-                <outlet property="temperatureLabel" destination="jHe-Jg-bIP" id="xIr-K5-Smn"/>
+                <outlet property="stateImage" destination="Lru-Rn-L15" id="QZH-a2-L31"/>
+                <outlet property="stateLabel" destination="Oo7-eI-Qc3" id="NQM-13-ymN"/>
+                <outlet property="temperatureLabel" destination="tJX-lC-Pr8" id="D9P-6W-Sxp"/>
             </connections>
-            <point key="canvasLocation" x="13" y="386.5"/>
+            <point key="canvasLocation" x="13" y="386"/>
         </customView>
-        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Aop-lh-vy7">
-            <rect key="frame" x="0.0" y="0.0" width="83" height="33"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="City" id="VDV-dB-hHv">
-                <font key="font" metaFont="system" size="25"/>
-                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-            </textFieldCell>
-            <point key="canvasLocation" x="78" y="428"/>
-        </textField>
     </objects>
 </document>

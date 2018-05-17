@@ -51,7 +51,42 @@ class statusMenuController: NSObject, WeatherAPIDelegate
         
     func updateWeather()
         {
-        weatherAPI.getCurrentWeather ( city: "Moscow" );
+        weatherAPI.getCurrentWeather ( city: "Moscow" ) { weather in
+//            if let weatherMenuItem = self.statusMenu.item ( withTitle: "Weather" ) 
+//                {
+//                weatherMenuItem.title = weather.description
+//                getIcon ( conditions: weather.conditions );
+//                }
+            self.weatherView.updateWeather ( weather: weather, icon: self.getIcon ( conditions: weather.conditions ) );
+                
+            };
+
+//        weatherAPI.getCurrentWeather(city: "Moscow" , success: { weather in NSLog ( weather.description ) } );
+        }
+        
+    func getIcon ( conditions currentConditions: String ) -> NSImageView
+        {
+        let tempImage = NSImageView(); //// !!!!!;
+        
+        print ( "Image: \( currentConditions )" );
+        switch currentConditions 
+            {
+            case "Sunny":
+                tempImage.image = #imageLiteral(resourceName: "sun");
+                
+//            case "Cloudy", "Partly cloudy":
+//            
+//            case "Mist":
+//            
+//            case "Patchy rain possible":
+//                
+            
+            default:
+                tempImage.image = #imageLiteral(resourceName: "default");
+            
+            }
+            
+        return tempImage;
         }
         
         
