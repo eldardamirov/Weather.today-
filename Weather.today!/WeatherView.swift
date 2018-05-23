@@ -27,8 +27,8 @@ class WeatherView: NSView
 //        temperatureLabel.setValue ( String ( data.currentTemp ), forKey:  );
 
 //        stateLabel.setValue ( String ( data.conditions ), forKey: .bold );
-        temperatureLabel?.stringValue = String ( data.currentTemp );
-        stateLabel?.stringValue = String ( data.conditions );
+//        temperatureLabel.stringValue = String ( data.currentTemp );
+//        stateLabel?.stringValue = String ( data.conditions );
         
         DispatchQueue.main.async 
             {

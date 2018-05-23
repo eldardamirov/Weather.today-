@@ -13,6 +13,8 @@ class statusMenuController: NSObject, WeatherAPIDelegate
     
     @IBOutlet weak var statusMenu: NSMenu!;
     let statusItem = NSStatusBar.system.statusItem ( withLength: NSStatusItem.variableLength );
+    var weatherMenuItem: NSMenuItem!;
+
     
     var weatherAPI: WeatherAPI!;
     var weatherView = WeatherView();
@@ -39,37 +41,41 @@ class statusMenuController: NSObject, WeatherAPIDelegate
         {
         // Insert code here to initialize your application
         
+       
+
+        
         let icon = NSImage ( named: NSImage.Name ( rawValue: "statusIcon" ) );
         icon?.isTemplate = true;
         statusItem.image = icon;
         
         statusItem.menu = statusMenu;
         
+        weatherMenuItem = statusMenu.item ( withTitle: "Weather" );
+        weatherMenuItem.view = weatherView;
+        
         weatherAPI = WeatherAPI ( delegate: self );
-        updateWeather();
+        
+       
+        
+//        updateWeather();
         }
         
-    func initializeSubviews() 
-        {
-        UINib ( nibName: "WeatherView", bundle: nil).instantiate(withOwner: self, options: nil)
-        addSubview(view)
-        view.frame = self.bounds
-        }
+ 
         
     func updateWeather()
         {
         weatherAPI.getCurrentWeather ( city: "Moscow" ) { weather in
-            if let weatherMenuItem = self.statusMenu.item ( withTitle: "Weather" ) 
-                {
-//                weatherMenuItem. = weather.description
-//                getIcon ( conditions: weather.conditions );
+//            if let weatherMenuItem = self.statusMenu.item ( withTitle: "Weather" ) 
+//                {
+////                weatherMenuItem. = weather.description
+////                getIcon ( conditions: weather.conditions );
+////                self.weatherView.updateWeather ( weather: weather, icon: self.getIcon ( conditions: weather.conditions ) );
 //                self.weatherView.updateWeather ( weather: weather, icon: self.getIcon ( conditions: weather.conditions ) );
-                self.weatherView.updateWeather ( weather: weather, icon: self.getIcon ( conditions: weather.conditions ) );
-                weatherMenuItem.view = self.weatherView;
-                }
+////                weatherMenuItem.view = self.weatherView;
+//                }
             self.weatherView.updateWeather ( weather: weather, icon: self.getIcon ( conditions: weather.conditions ) );
             NSLog ( "Updated.\n" );
-            print ( self.getIcon ( conditions: weather.conditions ) );
+//            print ( self.getIcon ( conditions: weather.conditions ) );
                 
             };
 
