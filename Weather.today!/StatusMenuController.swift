@@ -29,7 +29,7 @@ class statusMenuController: NSObject, WeatherAPIDelegate
         updateWeather();
         }
         
-    func weatherDidUpdate(_ weather: Weather) 
+    func weatherDidUpdate ( _ weather: Weather ) 
         {
         NSLog ( weather.description );
         }   
@@ -49,30 +49,43 @@ class statusMenuController: NSObject, WeatherAPIDelegate
         updateWeather();
         }
         
+    func initializeSubviews() 
+        {
+        UINib ( nibName: "WeatherView", bundle: nil).instantiate(withOwner: self, options: nil)
+        addSubview(view)
+        view.frame = self.bounds
+        }
+        
     func updateWeather()
         {
         weatherAPI.getCurrentWeather ( city: "Moscow" ) { weather in
-//            if let weatherMenuItem = self.statusMenu.item ( withTitle: "Weather" ) 
-//                {
-//                weatherMenuItem.title = weather.description
+            if let weatherMenuItem = self.statusMenu.item ( withTitle: "Weather" ) 
+                {
+//                weatherMenuItem. = weather.description
 //                getIcon ( conditions: weather.conditions );
-//                }
+//                self.weatherView.updateWeather ( weather: weather, icon: self.getIcon ( conditions: weather.conditions ) );
+                self.weatherView.updateWeather ( weather: weather, icon: self.getIcon ( conditions: weather.conditions ) );
+                weatherMenuItem.view = self.weatherView;
+                }
             self.weatherView.updateWeather ( weather: weather, icon: self.getIcon ( conditions: weather.conditions ) );
+            NSLog ( "Updated.\n" );
+            print ( self.getIcon ( conditions: weather.conditions ) );
                 
             };
 
 //        weatherAPI.getCurrentWeather(city: "Moscow" , success: { weather in NSLog ( weather.description ) } );
         }
         
-    func getIcon ( conditions currentConditions: String ) -> NSImageView
+    func getIcon ( conditions currentConditions: String ) -> NSImage
         {
-        let tempImage = NSImageView(); //// !!!!!;
+        let tempImage: NSImage!; //// !!!!!;
+        
         
         print ( "Image: \( currentConditions )" );
         switch currentConditions 
             {
             case "Sunny":
-                tempImage.image = #imageLiteral(resourceName: "sun");
+                tempImage = #imageLiteral(resourceName: "sun");
                 
 //            case "Cloudy", "Partly cloudy":
 //            
@@ -82,7 +95,8 @@ class statusMenuController: NSObject, WeatherAPIDelegate
 //                
             
             default:
-                tempImage.image = #imageLiteral(resourceName: "default");
+                tempImage = #imageLiteral(resourceName: "default");
+                print ( "Default" );
             
             }
             

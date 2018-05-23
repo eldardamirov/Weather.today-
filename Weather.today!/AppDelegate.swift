@@ -29,6 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        statusItem.image = icon;
 //        
 //        statusItem.menu = statusMenu;
+        
         }
 
     func applicationWillTerminate ( _ aNotification: Notification ) 

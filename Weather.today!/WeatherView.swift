@@ -22,20 +22,20 @@ class WeatherView: NSView
     @IBOutlet weak var stateLabel: NSTextField!;
     @IBOutlet weak var stateImage: NSImageView!;
     
-    public func updateWeather ( weather data: Weather, icon stateImage: NSImageView )
+    public func updateWeather ( weather data: Weather, icon stateImage: NSImage )
         {
 //        temperatureLabel.setValue ( String ( data.currentTemp ), forKey:  );
 
 //        stateLabel.setValue ( String ( data.conditions ), forKey: .bold );
-        temperatureLabel.stringValue = String ( data.currentTemp );
-        stateLabel.stringValue = String ( data.conditions );
+        temperatureLabel?.stringValue = String ( data.currentTemp );
+        stateLabel?.stringValue = String ( data.conditions );
         
         DispatchQueue.main.async 
             {
-            self.stateImage.image = stateImage.image;
+            self.stateImage?.image = stateImage;
             
-            self.temperatureLabel.stringValue = "\( Int ( data.currentTemp ) )°C";
-            self.stateLabel.stringValue =  "\( data.conditions )";
+            self.temperatureLabel?.stringValue = "\( Int ( data.currentTemp ) )°C";
+            self.stateLabel?.stringValue =  "\( data.conditions )";
             }
         
 //        let currentConditions = data.conditions;
